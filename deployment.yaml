@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-app
+  labels:
+    app: mi-app
+    environment: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+        environment: production
+    spec:
+      containers:
+        - name: app
+          image: nginx:latest
+          securityContext:
+            runAsNonRoot: false
