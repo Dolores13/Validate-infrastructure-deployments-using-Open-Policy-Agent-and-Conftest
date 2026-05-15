@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-app-segura
+  labels:
+    app: mi-app-segura
+    environment: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-app-segura
+  template:
+    metadata:
+      labels:
+        app: mi-app-segura
+        environment: production
+    spec:
+      containers:
+        - name: app
+          image: nginx:1.25.3
+          securityContext:
+            runAsNonRoot: true
