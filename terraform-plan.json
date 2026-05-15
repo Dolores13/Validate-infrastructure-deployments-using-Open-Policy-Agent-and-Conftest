@@ -1,0 +1,31 @@
+{
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "type": "aws_s3_bucket",
+          "name": "mi_bucket_publico",
+          "values": {
+            "bucket": "mi-bucket-empresa",
+            "acl": "public-read"
+          }
+        },
+        {
+          "type": "aws_ebs_volume",
+          "name": "mi_disco",
+          "values": {
+            "size": 100,
+            "encrypted": false
+          }
+        },
+        {
+          "type": "aws_instance",
+          "name": "mi_servidor",
+          "values": {
+            "instance_type": "t2.micro"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "planned_values": {
+    "root_module": {
+      "resources": [
+        {
+          "type": "aws_s3_bucket",
+          "name": "mi_bucket_seguro",
+          "values": {
+            "bucket": "mi-bucket-empresa",
+            "acl": "private"
+          }
+        },
+        {
+          "type": "aws_ebs_volume",
+          "name": "mi_disco_seguro",
+          "values": {
+            "size": 100,
+            "encrypted": true
+          }
+        },
+        {
+          "type": "aws_instance",
+          "name": "mi_servidor_seguro",
+          "values": {
+            "instance_type": "t2.micro",
+            "tags": {
+              "Name": "servidor-produccion",
+              "Environment": "production",
+              "Owner": "maria"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
