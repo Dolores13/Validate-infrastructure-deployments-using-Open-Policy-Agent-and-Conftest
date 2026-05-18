@@ -4,15 +4,15 @@
       "resources": [
         {
           "type": "aws_s3_bucket",
-          "name": "mi_bucket_seguro",
+          "name": "secure_bucket",
           "values": {
-            "bucket": "mi-bucket-empresa",
+            "bucket": "company-bucket",
             "acl": "private"
           }
         },
         {
           "type": "aws_ebs_volume",
-          "name": "mi_disco_seguro",
+          "name": "secure_disk",
           "values": {
             "size": 100,
             "encrypted": true
@@ -20,11 +20,11 @@
         },
         {
           "type": "aws_instance",
-          "name": "mi_servidor_seguro",
+          "name": "secure_server",
           "values": {
             "instance_type": "t2.micro",
             "tags": {
-              "Name": "servidor-produccion",
+              "Name": "production-server",
               "Environment": "production",
               "Owner": "maria"
             }
