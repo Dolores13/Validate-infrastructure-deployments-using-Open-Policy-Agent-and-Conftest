@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mi-app
+  name: my-app
   labels:
-    app: mi-app
+    app: my-app
     environment: production
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mi-app
+      app: my-app
   template:
     metadata:
       labels:
-        app: mi-app
+        app: my-app
         environment: production
     spec:
       containers:

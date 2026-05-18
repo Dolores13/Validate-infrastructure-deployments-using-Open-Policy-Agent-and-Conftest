@@ -4,15 +4,15 @@
       "resources": [
         {
           "type": "aws_s3_bucket",
-          "name": "mi_bucket_publico",
+          "name": "public_bucket",
           "values": {
-            "bucket": "mi-bucket-empresa",
+            "bucket": "company-bucket",
             "acl": "public-read"
           }
         },
         {
           "type": "aws_ebs_volume",
-          "name": "mi_disco",
+          "name": "unencrypted_disk",
           "values": {
             "size": 100,
             "encrypted": false
@@ -20,7 +20,7 @@
         },
         {
           "type": "aws_instance",
-          "name": "mi_servidor",
+          "name": "untagged_server",
           "values": {
             "instance_type": "t2.micro"
           }

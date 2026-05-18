@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mi-app-segura
+  name: my-secure-app
   labels:
-    app: mi-app-segura
+    app: my-secure-app
     environment: production
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: mi-app-segura
+      app: my-secure-app
   template:
     metadata:
       labels:
-        app: mi-app-segura
+        app: my-secure-app
         environment: production
     spec:
       containers:
@@ -21,3 +21,7 @@ spec:
           image: nginx:1.25.3
           securityContext:
             runAsNonRoot: true
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
