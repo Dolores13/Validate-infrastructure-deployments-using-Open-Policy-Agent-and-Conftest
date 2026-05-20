@@ -1,26 +1,43 @@
 name: Policy Validation
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Install OPA
+        run: |
+          wget https://github.com/open-policy-agent/opa/releases/download/v1.16.1/opa_linux_amd64_static
+          chmod +x opa_linux_amd64_static
+          sudo mv opa_linux_amd64_static /usr/local/bin/opa
+
       - name: Install Conftest
         run: |
           wget https://github.com/open-policy-agent/conftest/releases/download/v0.68.2/conftest_0.68.2_Linux_x86_64.tar.gz
           tar xzf conftest_0.68.2_Linux_x86_64.tar.gz
           sudo mv conftest /usr/local/bin/
+
+      - name: Run Rego unit tests
+        run: |
+          opa test policy.rego policy_test.rego
+
       - name: Validate Kubernetes manifests
         run: |
           conftest test deployment.yaml --policy policy.rego || true
+
       - name: Validate Terraform plan
         run: |
           conftest test terraform-plan.json --policy policy.rego --parser json || true
+
+
           
           
         
