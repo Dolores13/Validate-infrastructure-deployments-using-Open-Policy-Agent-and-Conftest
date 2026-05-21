@@ -1,5 +1,17 @@
 # Validate Infrastructure Deployments using OPA and Conftest
 
+
+
+\# Validate Infrastructure Deployments using OPA and Conftest
+
+
+
+!\[CI](https://github.com/Dolores13/Validate-infrastructure-deployments-using-Open-Policy-Agent-and-Conftest/actions/workflows/policy-check.yml/badge.svg)
+
+!\[License](https://img.shields.io/badge/license-MIT-blue)
+
+
+
 This is the practical part of my placement project for my MSc. The topic is about validating infrastructure deployments using Open Policy Agent (OPA) and Conftest.
 
 ## What this is about
@@ -37,3 +49,4 @@ The first one should fail (that's the point) and the second one should pass.
 ## Notes
 
 This is still a work in progress — I'm adding more policies and a Terraform example as I go.
+
